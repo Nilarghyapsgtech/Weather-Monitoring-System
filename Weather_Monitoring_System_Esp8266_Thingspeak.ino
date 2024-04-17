@@ -19,7 +19,7 @@ unsigned char check_connection=0;
 unsigned char times_check=0;
 boolean error;
 
-String myAPIkey = "8GX33VU8QE8WXEH9";  //Your Write API Key from Thingsspeak
+String myAPIkey = "8GX33VU8QE8WXEH9";  
 
 void setup()
 {
@@ -33,7 +33,7 @@ void setup()
    while(check_connection==0)
   {
     Serial.print(".");
-  ESP8266.print("AT+CWJAP=\"Rahul Jadhav 2.4g\",\"JadhRa@2310\"\r\n");
+  ESP8266.print("AT+CWJAP=\"2.4g\",\"prasun@2310\"\r\n");
   ESP8266.setTimeout(5000);
  if(ESP8266.find("WIFI CONNECTED\r\n")==1)
  {
@@ -88,7 +88,7 @@ void writeThingSpeak(void)
 {
   startThingSpeakCmd();
   // preparacao da string GET
-  String getStr = "GET /update?api_key=";
+  String getStr = "GET /update?api_key="8GX33VU8QE8WXEH9";
   getStr += myAPIkey;
   getStr +="&field1=";
   getStr += String(tempc);
@@ -104,7 +104,7 @@ void startThingSpeakCmd(void)
 {
   ESP8266.flush();
   String cmd = "AT+CIPSTART=\"TCP\",\"";
-  cmd += "184.106.153.149"; // api.thingspeak.com IP address
+  cmd += "184.106.153.149"; 
   cmd += "\",80";
   ESP8266.println(cmd);
   Serial.print("Start Commands: ");
